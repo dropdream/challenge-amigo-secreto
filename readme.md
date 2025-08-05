@@ -13,14 +13,6 @@
 - CSS3
 - JavaScript
 
-## Estructura del proyecto
-
-.
-├── index.html # Interfaz principal
-├── style.css # Estilos del proyecto
-├── app.js # Lógica del sorteo y funciones DOM
-└── README.md # Este archivo
-
 ## Instrucciones de uso
 
 1. Clona este repositorio o descarga los archivos.
