@@ -1,5 +1,6 @@
-#Amigo Secreto - Challenge Alura Latam - ONE
-##Funcionalidades
+# Amigo Secreto - Challenge Alura Latam - ONE
+
+## Funcionalidades
 - Agregar nombres de amigos a una lista
 - Muestra los nombres ingresados de manera dinamica.
 - Sorte nombres al azar
@@ -14,6 +15,7 @@
 
 ## Estructura del proyecto
 
+.
 ├── index.html # Interfaz principal
 ├── style.css # Estilos del proyecto
 ├── app.js # Lógica del sorteo y funciones DOM

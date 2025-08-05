@@ -2,9 +2,6 @@
 //arreglo de amigos
 let amigos = [];
 
-//arreglo para que no se repitan los amigos
-let indiceArray = [];
-
 //Funcion que añade amigos
 function agregarAmigo() {
     let nombreAmigo = document.getElementById('amigo').value;
@@ -39,41 +36,40 @@ function mostrarAmigos() {
     }
 }
 
-//Funcion para sortear amigos
+// Función para sortear amigos
 function sortearAmigo() {
-    cantidadAmigos = amigos.length;
+    let cantidadAmigos = amigos.length;
+    let resultado = document.getElementById('resultado');
 
     if (cantidadAmigos > 0) {
-        if (indiceArray.length === amigos.length) {
+        // Índice para sortear amigo
+        let indice = Math.floor(Math.random() * cantidadAmigos);
+        let nombre = amigos[indice];
+
+        // Elimina el amigo sorteado del arreglo
+        amigos.splice(indice, 1);
+
+        // Si ya no quedan amigos, oculta el botón
+        if (amigos.length === 0) {
+            resultado.innerHTML = `
+                <p>${nombre}</p>
+                <br>
+                <button class="button-draw" onclick="repetirSorteo()" id="repetirSorteo">Reiniciar sorteo</button>
+            `;
             alert('Se han sorteado todos los amigos');
-            return;
-        }
-
-        //Indice para sortear amigo
-        let indice = Math.floor(Math.random() * amigos.length);
-
-        if (indiceArray.includes(indice)) {
-            //Vuelve a ejecutar funcion para intentar con otro ya que este amigo ya salio.
-            sortearAmigo();
         } else {
-            //Guardamos en un array el amigo sorteado para que no salga nuevamente
-            indiceArray.push(indice);
-
-            let nombre = amigos[indice];
-
-            //Ocultamos listado y mostramos el resultado del sorteo
-            document.getElementById('listaAmigos').setAttribute('hidden', true);
-            document.getElementById('realizarSorteo').setAttribute('hidden', true);
-            
-            //Boton que repite sorteo hasta que se agotan los nombres
-            document.getElementById('resultado').innerHTML = ` <p>${nombre}</p>
-                                                            <br>
-                                                            <button class="button-draw" onclick="sortearAmigo()" id="repetirSorteo">Elegir nuevamente</button>`;
+            // Si aún quedan amigos, solo muestra el nombre sorteado
+            resultado.innerHTML = `<p>${nombre}</p>`;
         }
-
     } else {
-        //Alerta si el arreglo esta vacio
         alert('Debe ingresar amigos para realizar el sorteo');
     }
+}
 
+// Función que permite reiniciar el sorteo 
+function repetirSorteo() {
+    // Limpia todo
+    amigos = [];
+    document.getElementById('listaAmigos').innerHTML = '';
+    document.getElementById('resultado').innerHTML = '';
 }
