@@ -30,4 +30,4 @@
 
 ## Autoría
 
-Desarrollado por **Enrique Abrham Céspedes Domínguez** como parte del Challenge de Alura Latam
+Desarrollado por **Enrique Céspedes** como parte del Challenge de Alura Latam
